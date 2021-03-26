@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,9 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './components/register/register.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +21,14 @@ import { FooterComponent } from './components/footer/footer.component';
     FilterProductsComponent,
     ManageProductsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

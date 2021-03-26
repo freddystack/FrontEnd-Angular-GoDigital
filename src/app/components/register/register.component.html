@@ -1,0 +1,69 @@
+
+<div class="container mt-2">
+    <div class="row ">
+        <div class="col-xs d-flex flex-row justify-content-center">
+            <form (ngSubmit)="Save(form)" #form="ngForm">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombre"
+                  required
+                  [ngModel]="product.nombre"
+                  placeholder="Nombre del Producto"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+        
+              <label for="basic-url" class="form-label">URL de la imagen</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3"
+                  >https://example.com/imagen.jpg</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="imagen"
+                  [ngModel]="product.imagen"
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+        
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="precio"
+                  [ngModel]="product.precio"
+                  placeholder="Precio"
+                  aria-label="Precio"
+                />
+                <span class="input-group-text">$</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Categoria"
+                  name="categpria"
+                  [ngModel]="product.categpria"
+                  aria-label="Server"
+                />
+              </div>
+        
+              <div class="input-group">
+                <span class="input-group-text">Descripcion</span>
+                <textarea class="form-control" aria-label="With textarea" name="descripcion" [ngModel]="product.descripcion"></textarea>
+              </div>
+              <div *ngIf="IsUpdated; else IsSave">
+                <button  type="submit" class="btn btn-primary mt-2">Actualizar</button>
+              </div>
+              <ng-template #IsSave>
+                <button  type="submit" class="btn btn-primary mt-2">Guardar</button>
+              </ng-template>
+              
+             
+            </form>
+          </div>
+    </div>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductUI } from 'src/app/Interfaces/product.interface';
+import {ApiServiceService} from '../../services/api-service.service'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-recent-products',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecentProductsComponent implements OnInit {
 
-  constructor() { }
+  ListProducts: ProductUI = new ProductUI()
+
+  constructor(private apiservice : ApiServiceService, private route: Router) { }
 
   ngOnInit(): void {
+     this.ShowPreoducts()
+   
+  }
+ 
+  ShowPreoducts(){
+    this.apiservice.GetProducts().subscribe(
+      res => {
+        this.ListProducts = res
+      },
+      error => console.log(error)
+    )
+  }
+
+  Manage(id : number){
+    this.route.navigate(['/manageproduct', id])
+    console.log(id);
   }
 
 }

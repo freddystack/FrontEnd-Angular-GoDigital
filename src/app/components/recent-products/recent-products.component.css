@@ -1,0 +1,40 @@
+.card{
+    width: 230px;
+    padding-bottom: 10px;
+
+    min-height: 250px;
+}
+.card .card-body .card-price {
+   font-weight: bolder;
+   font-size: 16px;
+   color: rgb(255, 7, 7);
+}
+.card .card-body .card-price span {
+    font-weight: bolder;
+    font-size: 9px;
+ }
+ .card .card-body .card-categorie{
+     font-size: 11px;
+ }
+ .card .card-body .card-categorie span{
+    color: red;
+    font-weight: bolder;
+}
+
+
+ .card .actions svg{
+     padding: 3px;
+ }
+.tarjetas{
+   
+   
+    width: 100%;
+}
+.tarjetas .card img{
+    height: 150px;
+}
+
+.card .card-body .card-name{
+    font-weight: bolder;
+    /* line-height: 0px; */
+}
