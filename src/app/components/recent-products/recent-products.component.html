@@ -1,23 +1,7 @@
-<!-- <div class="container">
-    <div class="cardd">
-      <div class="header">
-        <h3>titulo de la tarjeta</h3>
-      </div>
-      <div class="body">
-          <img src="logo.png" alt=""> 
-      </div>
-      <div class="footer">
-         <small>footer de la tarjeta
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur modi provident laboriosam voluptas enim. Rerum beatae veritatis voluptatum nobis error.
-         </small>
-      </div>
-    </div>
-  </div>-->
 
   <div class="container-fluid">
-    <div class="tarjetas row d-flex justify-content-center" >
-        <div class="card m-1 " *ngFor="let product of ListProducts" >
+    <div class=" row d-flex justify-content-center" >
+        <div class="col-xs flex-wrap card m-1 " *ngFor="let product of ListProducts" >
             <img [src]="product.imagen" class="card-img-top"  >
             <div class="card-body">
               <p class="card-price"> ${{product.precio }}</p>

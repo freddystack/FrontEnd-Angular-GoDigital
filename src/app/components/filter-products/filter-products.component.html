@@ -13,7 +13,7 @@
         />
       </div>
     </div>
-    <div class="chkFilter d-flex flex-row justify-content-center">
+    <div class="chkFilter d-flex flex-row justify-content-center mb-1">
       <div class="d-flex flex-row align-items-center">
         <label for="inputState" class="lblselect">Selecionar</label>
         <select class="form-select" [(ngModel)]="productSelect">
@@ -21,43 +21,35 @@
           <option value="categoria">Filtrar por Categoria</option>
         </select>
       </div>
-
-      <button type="button" class="btn btn-primary btn-sm btnFilter" (click)="f()">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm btnFilter"
+        (click)="f()"
+      >
         Aplicar Filtro
       </button>
     </div>
   </div>
-
   <div class="row">
     <cdk-virtual-scroll-viewport itemSize="60" class="scroll">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Categoría</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-       <!--  <tr *ngFor="let product of listProduct | filterproduct: filter">
-          <td>{{ product.nombre }}</td>
-          <td>{{ product.precio }}</td>
-          <td>{{ product.descripcion }}</td>
-          <td>{{ product.categpria }}</td>
-        </tr> -->
-    
-      <tr *ngFor="let product of listProduct | filterproduct: filter">
-          <td>{{ product.nombre }}</td>
-          <td>{{ product.precio }}</td>
-          <td>{{ product.descripcion }}</td>
-          <td>{{ product.categpria }}</td>
-        </tr> 
-   
-      </tbody>
- 
-    </table>
-</cdk-virtual-scroll-viewport>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of listProduct | filterproduct: filter">
+            <td>{{ product.nombre }}</td>
+            <td>{{ product.precio }}</td>
+            <td>{{ product.descripcion }}</td>
+            <td>{{ product.categpria }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>
