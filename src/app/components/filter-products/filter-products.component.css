@@ -1,0 +1,14 @@
+.container .row .col .searchs {
+    width: 50%;
+}
+
+
+.lblselect{
+    padding-right: 10px;
+}
+
+.scroll{
+    width: 100%;
+
+    height: 50vh;
+}

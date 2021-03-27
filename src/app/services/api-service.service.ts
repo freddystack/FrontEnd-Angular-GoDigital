@@ -9,6 +9,8 @@ import  sweet from 'sweetalert2'
   providedIn: 'root'
 })
 export class ApiServiceService {
+  
+  filterType: string = "default"
 
   private readonly URL = "https://localhost:44377/api/products";
 
@@ -76,6 +78,10 @@ export class ApiServiceService {
             })
          })
        )
+    }
+
+    typeFilter(type: string){
+        this.filterType = type
     }
 
 

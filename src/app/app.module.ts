@@ -10,9 +10,12 @@ import { FilterProductsComponent } from './components/filter-products/filter-pro
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgxPaginationModule} from 'ngx-pagination'
+import {ScrollingModule} from '@angular/cdk/scrolling'
 
 import {HttpClientModule} from '@angular/common/http';
-import { RegisterComponent } from './components/register/register.component'
+import { RegisterComponent } from './components/register/register.component';
+import { FilterproductPipe } from './pipes/filterproduct.pipe'
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import { RegisterComponent } from './components/register/register.component'
     ManageProductsComponent,
     NavbarComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    FilterproductPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
