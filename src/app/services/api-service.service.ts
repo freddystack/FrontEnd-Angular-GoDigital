@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import {catchError, map} from 'rxjs/operators'
 import {ProductUI} from '../Interfaces/product.interface'
 import  sweet from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,13 @@ import  sweet from 'sweetalert2'
 export class ApiServiceService {
   
   filterType: string = "default"
-
   private readonly URL = "https://localhost:44377/api/products";
 
-  constructor(private http : HttpClient ) { }
+  constructor(private http : HttpClient, 
+              private router: Router) { }
 
    GetProducts():Observable<ProductUI>{
       return this.http.get<ProductUI>(this.URL)
-        
   }
 
   InsertNewProduct( product : ProductUI){
@@ -32,7 +32,6 @@ export class ApiServiceService {
     return this.http.post(this.URL, dataProduct)
     .pipe(
        map((response: any) =>{
-         console.log(response);
          sweet.fire({
            icon: "success",
            text: response.message
@@ -43,7 +42,6 @@ export class ApiServiceService {
     }
 
     UpdateProduct(product: ProductUI, id : number){
-
       const dataproduct = {
         id : id,
         nombre: product.nombre,
@@ -55,7 +53,6 @@ export class ApiServiceService {
       return this.http.put(`${this.URL}/${id}`, dataproduct)
       .pipe(
         map((response: any) =>{
-          console.log(response);
           sweet.fire({
             icon: "success",
             text: response.message
@@ -64,6 +61,7 @@ export class ApiServiceService {
         catchError( err => of(console.log(err)))
      )
     }
+
     SearchProductById(id : number): Observable<ProductUI>{
       return this.http.get<ProductUI>(`${this.URL}/${id}`)
     }
@@ -83,6 +81,13 @@ export class ApiServiceService {
     typeFilter(type: string){
         this.filterType = type
     }
+
+    ApplyDelay(route: string){
+      setTimeout(() =>{
+        this.router.navigate([`/${route}`])
+       },500)
+    }
+
 
 
 }

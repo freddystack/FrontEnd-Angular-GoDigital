@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms'
 import {ProductUI} from '../../Interfaces/product.interface'
 import {ApiServiceService} from '../../services/api-service.service'
-import {Router, ActivatedRoute} from '@angular/router'
+import { ActivatedRoute} from '@angular/router'
 
 
 @Component({
@@ -13,37 +13,32 @@ import {Router, ActivatedRoute} from '@angular/router'
 export class RegisterComponent implements OnInit {
 
   product = {} = new ProductUI();
-  ID : number
+  private ID : number
   IsUpdated: boolean = false
 
   constructor(private apiService: ApiServiceService,
-              private route : Router,
               private activatedRputer : ActivatedRoute
     ) { }
 
   ngOnInit(): void {
     this.activatedRputer.params.subscribe(p => this.ID = p['id'] )
-
-   
     if( !isNaN(this.ID) ){
       this.IsUpdated = true
        this.apiService.SearchProductById(this.ID).subscribe(
         res => this.product = res
       ) 
-
     }
     else{
       this.IsUpdated = false
     }
   }
 
-
   Save( form : NgForm){
-
     if(form.invalid){
       Object.values( form.controls ).forEach(e => {
         e.markAllAsTouched()
       })
+      alert("Por favor ingrese los datos necesarios!")
       return
     }
     if( !isNaN(this.ID) ){
@@ -52,13 +47,6 @@ export class RegisterComponent implements OnInit {
     else{
       this.apiService.InsertNewProduct(form.value).subscribe()
     }
-   
-    form.reset()
-     setTimeout(() =>{
-      this.route.navigate(['/home'])
-     },500)
+     this.apiService.ApplyDelay("home")
   }
-
-
-
 }

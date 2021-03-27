@@ -10,16 +10,16 @@ import {Router} from '@angular/router'
 })
 export class RecentProductsComponent implements OnInit {
 
-  ListProducts: ProductUI = new ProductUI()
+  ListProducts: {} = new ProductUI()
 
-  constructor(private apiservice : ApiServiceService, private route: Router) { }
+  constructor(private apiservice : ApiServiceService, 
+              private route: Router) { }
 
   ngOnInit(): void {
-     this.ShowPreoducts()
-   
+     this.ShowProducts()
   }
  
-  ShowPreoducts(){
+  ShowProducts(){
     this.apiservice.GetProducts().subscribe(
       res => {
         this.ListProducts = res
@@ -30,7 +30,6 @@ export class RecentProductsComponent implements OnInit {
 
   Manage(id : number){
     this.route.navigate(['/manageproduct', id])
-    console.log(id);
   }
 
 }

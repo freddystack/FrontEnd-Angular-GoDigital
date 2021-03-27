@@ -1,6 +1,4 @@
 
-
-
 export class ProductUI{
     id? :number
     nombre: string
@@ -8,5 +6,4 @@ export class ProductUI{
     descripcion: string
     imagen: string
     categpria: string
-
 }
