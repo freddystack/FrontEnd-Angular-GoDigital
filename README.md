@@ -1,4 +1,4 @@
-## Desarrollor: Freddy Josue Muñoz Dominguez
+## Desarrollador: Freddy Josue Muñoz Dominguez
 
 # Frontgodigital
 
